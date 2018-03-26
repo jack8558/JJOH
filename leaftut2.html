@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title> Leaftut2</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+	integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+	crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+	integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+	crossorigin=""></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script>var g = "thealeoftheoldgreendragon";</script>
+	<script type="text/javascript" src="csvtogeo.js"></script>
+	
+	<!--<input type="file" id="csvFileInput" onchange="prehand(this.files);" accept=".csv">-->
+	<!--<input type="file" id="csvFileInput" onchange="handle(this.files);" accept=".csv">-->
+		<!--<input type="file" id="csvFileInput" onchange="prehand(this.files, setTimeout(function(){peg();},2000););" accept=".csv"> -->
+	<input type="file" id="csvFileInput" onchange="prehand(this.files, function(){peg();});" accept=".csv"> 
+</head>
+<body>
+<!--
+<style>
+var{
+	display: none;
+}
+</style>
+-->
+	<div id="mapid" style="width: 600px; height: 400px;"></div>
+	
+	<script>
+function hello(){
+		window.alert("OI!");
+	}
+function peg(){
+	//window.alert(g);
+	//$("#glob").html(g);
+	setTimeout(function(){
+		g = JSON.parse(g);
+		var ml = L.geoJSON().addTo(mymap);
+		ml.addData(g);
+	},1000);
+	
+	//g = g.replace(/['']/g, '');
+	
+	/*var lion = [{
+    "type": "LineString",
+    "coordinates": [[-100, 20], [-105, 45], [-110, 55]]
+}, {
+    "type": "LineString",
+    "coordinates": [[-105, 20], [-110, 45], [-115, 55]]
+}];*/
+	
+}
+	function prehand(fils,cb){
+	//function prehand(fils){
+		handle(fils);
+		cb();
+		//cb(g);
+		//$("#glob").html(g);
+		//cb(dragon);
+		//document.getElementById("glob").innerHTML=g;
+		//window.alert(g);
+		//var g = dragon.replace(/["']/g, "");
+		//myLayer.addData(g);
+		//window.alert(dragon);
+		//g = g.replace(/["']/g, "");
+		//myLayer.addData(g);
+	}
+		var mymap = L.map('mapid').setView([19.4326, -99.1332], 4);
+		//var mymap = L.map('mapid').setView([37.8, -96], 4);
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		    maxZoom: 13,
+		    id: 'mapbox.streets',
+		    accessToken: 'pk.eyJ1IjoiY2FjdG9wdTUiLCJhIjoiY2o5aXh6bzRhM3B6djMzcnd3bjcwZGtlNSJ9.Zy2DMHrwnI0iyfBKFOxlCA'
+		}).addTo(mymap);
+		
+				
+		//var myLayer = L.geoJSON().addTo(mymap);
+		//myLayer.addData(lion);
+	</script>
+	<var id="glob"></var>
+</body>
+</html>
