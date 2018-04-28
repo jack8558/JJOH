@@ -35,8 +35,17 @@ function peg(){
 	//$("#glob").html(g);
 	setTimeout(function(){
 		g = JSON.parse(g);
-		var ml = L.geoJSON().addTo(mymap);
-		ml.addData(g);
+		var ml = L.geoJSON(g,{
+			onEachFeature: function (feature, layer) {
+        var popupcontent = [];
+        for (var prop in feature.properties) {
+            popupcontent.push(prop + ": " + feature.properties[prop]);
+            console.log(prop);
+        }
+        layer.bindPopup(popupcontent.join("<br />"));
+    }
+	}).addTo(mymap);
+		//ml.addData(g);
 	},1000);
 	
 	//g = g.replace(/['']/g, '');
@@ -73,7 +82,6 @@ function peg(){
 		    id: 'mapbox.streets',
 		    accessToken: 'pk.eyJ1IjoiY2FjdG9wdTUiLCJhIjoiY2o5aXh6bzRhM3B6djMzcnd3bjcwZGtlNSJ9.Zy2DMHrwnI0iyfBKFOxlCA'
 		}).addTo(mymap);
-		
 				
 		//var myLayer = L.geoJSON().addTo(mymap);
 		//myLayer.addData(lion);
