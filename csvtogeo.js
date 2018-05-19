@@ -1,17 +1,11 @@
 //var dragon = "DRAGON!";
 
 function randlat(){
-var mul = Math.random();
-if (mul < 0.5)
-	return -180*Math.random();
-return 180*Math.random();
+	return Math.random() * (97 - 110)  + -97;
 }
 
 function randlon(){
-var mul = Math.random();
-if (mul < 0.5)
-	return -90*Math.random();
-return 90*Math.random();
+	return Math.random() * (30 - 25)  + 25;
 } 
 
 function handle(fils){
@@ -65,7 +59,7 @@ function ctog(csvin){ //csvin,geoout) {
 	var hfound = false;
 	var year, lat, lon, nam, crim, cols0, cols1;
 	var ret = "";
-	for (var i= 0; i<rows.length; i++){
+	for (var i= 0; i<rows.length-1; i++){
 		cols1 = rows[i].split(/,/);
 		/*cols0 = rows[i].split(/,\"/);
 		window.alert(cols0);
@@ -89,7 +83,7 @@ function ctog(csvin){ //csvin,geoout) {
 				crim = cols1[crimpos];
 				ret+= '{"type": "Feature","properties": {"year": '+'"'+year+'"'+', "name": '+'"'+nam+'"'+', "crime": '+'"'+crim+'"'+'},';
 				ret+= '"geometry": {"type": "Point", "coordinates": ['+lat+','+lon+']}}';
-				if (i!=rows.length-1)
+				if (i!=rows.length-2)
 					ret+=',';
 			}
 			else if(cols1.indexOf("Year ") != -1){
