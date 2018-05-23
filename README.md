@@ -1,8 +1,8 @@
 # JJOH
-Implementation of Techniques to create an interactive map
+# Implementation of Techniques to create an interactive map
 
 
-Overview
+## Overview
 
 Leaflet is an open source JavaScript library used to build online map applications. It has most of the mapping features developers want, and it has a simple, readable source code and well-documented API. 
 
@@ -13,14 +13,14 @@ Techniques that can import data to the map and display data through time were de
 The finalized Fairfax County Map is Slider_Nap_Online.html in FairfaxCountyMap folder and the finalized Mexican Court Case Map is mccmap.html in MexicanCourtCaseMap folder. 
 
 
-Authors
+##Authors
 
 •	Jack & James Oh
 •	Dr. Lynn Lambert
 •	Laurence Carlucci
 
 
-Acknowledgments
+## Acknowledgments
 
 •	Dr. Conell – providing data in Archivo De la Nacion
 
