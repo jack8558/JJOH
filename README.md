@@ -13,7 +13,7 @@ Techniques that can import data to the map and display data through time were de
 The finalized Fairfax County Map is Slider_Nap_Online.html in FairfaxCountyMap folder and the finalized Mexican Court Case Map is mccmap.html in MexicanCourtCaseMap folder. 
 
 
-##Authors
+## Authors
 
 •	Jack & James Oh
 •	Dr. Lynn Lambert
