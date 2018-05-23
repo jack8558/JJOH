@@ -22,5 +22,5 @@ The finalized Fairfax County Map is Slider_Nap_Online.html in FairfaxCountyMap f
 
 ## Acknowledgments
 
-•	Dr. Connell – providing data of Archivo De la Nacion
+•	Dr. Connell – providing data of Archivo General De la Nacion (Mexico)
 
